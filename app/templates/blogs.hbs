@@ -1,0 +1,9 @@
+<h2>Blogs Listing</h2>
+{{#each blog in model}}
+	<h3>{{blog.title}}</h3>
+	<p>{{blog.body}}</p>
+{{else}}
+	<p>No blogs yet.</p>
+{{/each}}
+
+{{outlet}}

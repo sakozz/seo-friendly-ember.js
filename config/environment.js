@@ -2,15 +2,24 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'frontend-bitsocean',
-    environment: environment,
-    baseURL: '/',
-    locationType: 'auto',
+    modulePrefix : 'frontend-bitsocean',
+    environment  : environment,
+    baseURL      : '/',
+    locationType : 'auto',
+    contentSecurityPolicy: {
+      'script-src'  : "'self' 'unsafe-eval' 'unsafe-inline'",
+      'img-src'     : "'self' ",
+      'font-src'    : "'self' fonts.gstatic.com",
+      'style-src'   : "'self' 'unsafe-inline' fonts.googleapis.com hello.myfonts.net",
+      'connect-src' : "'self' ",
+      'frame-src': ''
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
-      }
+      },
+      backend: 'http://localhost:3000'
     },
 
     APP: {
@@ -20,6 +29,10 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.EmberENV.backend = 'http://localhost:3000';
+    ENV.ACTIVE_MODEL_API_URL = 'http://localhost:3000/api';
+    ENV.contentSecurityPolicy['script-src'] +=  " localhost:35729 0.0.0.0:35729";
+    ENV.contentSecurityPolicy['connect-src'] += " localhost:3000 0.0.0.0:35729 ";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -40,7 +53,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+     // ENV.EmberENV.backend: 'http://localhost:3000',
   }
 
   return ENV;

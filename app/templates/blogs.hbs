@@ -1,28 +1,11 @@
-<h2>Blogs Listing</h2>
-{{!-- 
-{{#paper-content classNames="md-whiteframe-z0" flex-layout="column" flex='50'}}
-  {{#paper-list}}
-    {{#each item in model}}
-    	{{#link-to 'blogs.blog' item}}
-        {{#paper-item}}
-          {{#paper-tile-left}}
-            <img {{bind-attr src=item.face alt=item.who}} class="face">
-          {{/paper-tile-left}}
-
-          {{#paper-tile-content}}
-            <h3>{{item.title}}</h3>
-            <p> {{item.body}} </p>
-          {{/paper-tile-content}}
-        {{/paper-item}}
-      {{/link-to}}
-      {{paper-divider}} 
-    {{/each}}
-  {{/paper-list}}
-{{/paper-content}}
-
-{{#paper-content flex-layout="column" flex='40'}}
-	{{outlet}}
-{{/paper-content}}
-
-
- --}}
+<div class="list-group col-md-3 panel-default">
+  {{#each blog in model}}          
+    {{#link-to 'blogs.blog' blog class="list-group-item"}}
+      {{blog.title}}<br>
+      {{!-- <small><cite> {{ date createdAt }} </cite></small> --}}
+    {{/link-to}}
+  {{/each}}
+</div>
+<div class="container col-md-9"> 
+  {{outlet}}
+</div>

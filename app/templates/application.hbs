@@ -1,30 +1,22 @@
-{{!-- {{#paper-nav-container classNames="ember-app"}}
-	{{#paper-sidenav classNames="md-sidenav-left md-whiteframe-z2" flex-layout="column" flex=true}}
-    {{#paper-toolbar}}
-      <div class="md-toolbar-tools">
-        <div class="logo">
-          <img src="ember-logo-white.png" height="30"/>  <strong>Paper</strong>
-        </div>
-      </div>
-    {{/paper-toolbar}}      
-  {{/paper-sidenav}} 
+<nav class="navbar navbar-default  navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'pages' classNames="navbar-brand" }}Home{{/link-to}}
+    </div>
 
-  {{#paper-content flex-layout="column" flex=true}}
-	  
-		  {{#paper-toolbar}}
-		    <div class="md-toolbar-tools">
-		      {{#paper-button}}<a href="/">Home</a>{{/paper-button}}
-		      {{#paper-button}} {{#link-to 'blogs'}}Blogs{{/link-to}}{{/paper-button}}
-		    </div>
-		  {{/paper-toolbar}}
-
-		{{#paper-content classNames="md-padding" flex-layout="column" flex=true}}
-		   
-		   
-		{{/paper-content}}
-  {{/paper-content}}
-
-{{/paper-nav-container}}
---}}
-<h1>Welcome to Ember.js App</h1>
- {{outlet}}
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      	{{#link-to 'blogs' tagName="li"}} <a href="#"> Blogs </a>{{/link-to}}
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+ 	{{outlet}}
+</div>

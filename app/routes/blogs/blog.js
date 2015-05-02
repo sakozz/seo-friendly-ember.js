@@ -7,5 +7,9 @@ export default Ember.Route.extend({
   
   serialize: function(model){
     return {blog_slug: model.get('slug')};
+  },
+
+  titleToken: function  (model) {
+  	return model.get('title');
   }
 });

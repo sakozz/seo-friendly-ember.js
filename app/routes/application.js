@@ -5,7 +5,6 @@ export default Ember.Route.extend({
   		return tokens.join(' | ') + ' - BitsOcean';
   	}else{
   		return 'BitsOcean';
-  	}
-    
+  	}  
   }
 });

@@ -7,7 +7,11 @@ export default DS.Model.extend({
   createdAt : DS.attr(),
   slug: function() {
     return this.get('title').replace(/\s+/g, '-').toLowerCase();
-  }.property('title')
+  }.property('title'),
+
+  metaDescription: function () {
+  	return this.get('body').substr(0, 20) + "...";
+  }.property('body')
 
 
 });

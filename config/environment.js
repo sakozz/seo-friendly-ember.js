@@ -31,6 +31,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.RAISE_ON_DEPRECATION = true;
     ENV.EmberENV.backend = 'http://localhost:3000';
     ENV.ACTIVE_MODEL_API_URL = 'http://localhost:3000/api';
     ENV.contentSecurityPolicy['script-src'] +=  " localhost:35729 0.0.0.0:35729";

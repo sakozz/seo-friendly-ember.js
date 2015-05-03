@@ -3,6 +3,7 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
+		storeConfigInMeta: false,
 
 	  'ember-cli-bootswatch': {
     'theme': 'cerulean', // bootswatch theme

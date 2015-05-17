@@ -33,5 +33,4 @@ export default Ember.Route.extend(RouteMetaMixin,{
     };
     this.set('meta', metaTags);
   }
-
 });

@@ -1,0 +1,13 @@
+<div class="list-group col-md-3 panel-default">
+  {{#each framework in model}}          
+    {{#link-to 'frameworks.framework' framework class="list-group-item"}}
+      {{framework.name}}<br>
+      {{!-- <small><cite> {{ date createdAt }} </cite></small> --}}
+    {{/link-to}}
+  {{/each}}
+</div>
+<div class="container col-md-9"> 
+	<h3>Front-end javascript frameworks comparision based on Google trend </h3>
+	<div class="gtrend"></div>
+  {{outlet}}
+</div>

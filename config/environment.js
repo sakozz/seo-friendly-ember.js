@@ -11,7 +11,7 @@ module.exports = function(environment) {
       'img-src'     : "'self' ",
       'font-src'    : "'self'  https://fonts.gstatic.com",
       'style-src'   : "'self' 'unsafe-inline' fonts.googleapis.com hello.myfonts.net",
-      'connect-src' : "'self' ",
+      'connect-src' : "'self' http://api.bitsocean.com",
       'media-src': "'self'",
       'frame-src': ''
     },
@@ -21,7 +21,7 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
         'ember-htmlbars': true
       },
-      backend: 'http://localhost:3000'
+      backend: 'http://api.bitsocean.com'
     },
 
     APP: {
@@ -32,8 +32,7 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.RAISE_ON_DEPRECATION = true;
-    ENV.EmberENV.backend = 'http://localhost:3000';
-    ENV.ACTIVE_MODEL_API_URL = 'http://localhost:3000/api';
+    ENV.ACTIVE_MODEL_API_URL = 'http://api.bitsocean.com';
     ENV.contentSecurityPolicy['script-src'] +=  " localhost:35729 0.0.0.0:35729";
     ENV.contentSecurityPolicy['connect-src'] += " localhost:3000 0.0.0.0:35729 ";
     // ENV.APP.LOG_RESOLVER = true;
@@ -56,7 +55,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-     // ENV.EmberENV.backend: 'http://localhost:3000',
+    
   }
 
   return ENV;

@@ -1,12 +1,22 @@
 /* global require, module */
-
+var env = process.env.EMBER_ENV;
+var config = require('./config/environment')(env);
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+
 
 var app = new EmberApp({
 		storeConfigInMeta: false,
 	  'ember-cli-bootswatch': {
     'theme': 'cerulean', // bootswatch theme
     'excludeJS': true    // ember-cli-bootstrap includes javascript components
+  },
+  inlineContent: {
+    'google-analytics' : {
+      file: './app/inline-contents/google-analytics.js',
+      postProcess: function(content) {
+        return content.replace(/\{\{GOOGLE_ANALYTICS_ID\}\}/g, config.googleAnalyticsId);
+      }
+    }
   }
 });
 

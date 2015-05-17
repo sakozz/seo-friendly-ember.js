@@ -7,13 +7,13 @@ module.exports = function(environment) {
     baseURL      : '/',
     locationType : 'auto',
     contentSecurityPolicy: {
-      'script-src'  : "'self' 'unsafe-eval' 'unsafe-inline'",
+      'script-src'  : "'self' 'unsafe-eval' 'unsafe-inline' www.google.com www.google-analytics.com",
       'img-src'     : "'self' ",
       'font-src'    : "'self'  https://fonts.gstatic.com",
       'style-src'   : "'self' 'unsafe-inline' fonts.googleapis.com hello.myfonts.net",
       'connect-src' : "'self' http://api.bitsocean.com",
       'media-src': "'self'",
-      'frame-src': ''
+      'frame-src': "'self' www.google.com" 
     },
     EmberENV: {
       FEATURES: {
@@ -31,6 +31,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.googleAnalyticsId = 'UA-xxxxxxxx-1'
     ENV.RAISE_ON_DEPRECATION = true;
     ENV.ACTIVE_MODEL_API_URL = 'http://api.bitsocean.com';
     ENV.contentSecurityPolicy['script-src'] +=  " localhost:35729 0.0.0.0:35729";
@@ -55,7 +56,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    
+    ENV.googleAnalyticsId = 'UA-56285658-3'
   }
 
   return ENV;

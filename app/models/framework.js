@@ -8,7 +8,7 @@ var Framework= DS.Model.extend({
   liscence       : DS.attr(),
   slug: Ember.computed('name',{
     get: function () {
-      return this.get('name').replace(/\s+/g, '-').toLowerCase();
+      return this.get('name').toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
     }
   })
 });

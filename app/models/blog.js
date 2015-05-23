@@ -8,7 +8,7 @@ export default DS.Model.extend({
   createdAt : DS.attr(),
   slug: Ember.computed('title',{
     get: function () {
-      return this.get('title').replace(/\s+/g, '-').toLowerCase();
+      return this.get('title').toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
     }
   }),
 

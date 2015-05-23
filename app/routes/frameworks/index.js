@@ -18,13 +18,16 @@ export default Ember.Route.extend(RouteMetaMixin,{
   },
 
   setMetaTags: function (model) {
+  	var metaDescription = model.metaDescription.substring(0,150)+ '...';
   	var metaTags = {
       'property': {
         'og:name'  : model.title +' - BitsOcean',
-        'og:image' : 'http://i.imgur.com/ilmbIHl.png'
+        'og:url'	: document.location.href,
+        'og:image' : 'http://i.imgur.com/ilmbIHl.png',
+        'og:description' : metaDescription
       },
       'name': {
-        'description' : model.metaDescription,
+        'description' : metaDescription,
         'keywords'    : model.title
       }
     };

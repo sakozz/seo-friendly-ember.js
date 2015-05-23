@@ -12,6 +12,10 @@ export default Ember.Route.extend(RouteMetaMixin,{
     return {framework_slug: model.get('slug')};
   },
 
+  titleToken: function  (model) {
+    return model.get('name');
+  },
+
   metaTags: {},
 
   afterModel: function(model) {
@@ -19,13 +23,16 @@ export default Ember.Route.extend(RouteMetaMixin,{
   },
 
   setMetaTags: function (model) {
+    var metaDescription = model.get('description').substring(0,150)+ '...';
   	var metaTags = {
       'property': {
         'og:name'  : model.get('name') +' - BitsOcean',
-        'og:image' : 'http://i.imgur.com/ilmbIHl.png'
+        'og:image' : 'http://i.imgur.com/ilmbIHl.png',
+        'og:url'  : document.location.href,
+        'og:description' : metaDescription
       },
       'name': {
-        'description' : model.get('description'),
+        'description' : metaDescription,
         'keywords'    : model.get('name')
       }
     };

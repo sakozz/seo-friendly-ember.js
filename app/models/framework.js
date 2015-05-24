@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 var Framework= DS.Model.extend({
   name           : DS.attr(),
@@ -6,7 +7,7 @@ var Framework= DS.Model.extend({
   source         : DS.attr(),
   initialRelease : DS.attr(),
   liscence       : DS.attr(),
-  slug: Ember.computed('name',{
+  slug: Ember.computed('name', {
     get: function () {
       return this.get('name').toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
     }

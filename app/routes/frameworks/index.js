@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
-import RouteMetaMixin from '../../mixins/route-meta';
+// import RouteMetaMixin from '../../mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin,{
 	
@@ -12,27 +13,26 @@ export default Ember.Route.extend(RouteMetaMixin,{
 		};
   },
 
-  metaTags: {},
   afterModel: function(model) {
-  	this.setMetaTags(model);
+  	// this.setMetaTags(model);
   },
 
-  setMetaTags: function (model) {
-  	var metaDescription = model.metaDescription.substring(0,150)+ '...';
-  	var metaTags = {
+  meta: function (model) {
+  	// var metaDescription = model.metaDescription.substring(0,150)+ '...';
+
+    var model = this.get('currentModel');
+  	return {
       'property': {
         'og:name'  : model.title +' - BitsOcean',
         'og:url'	: document.location.href,
         'og:image' : 'http://i.imgur.com/ilmbIHl.png',
-        'og:description' : metaDescription
+        'og:description' :  model.metaDescription.substring(0,150)+ '...'
       },
       'name': {
-        'description' : metaDescription,
+        'description' :  model.metaDescription.substring(0,150)+ '...',
         'keywords'    : model.title
       }
     };
-
-    this.set('meta', metaTags);
   },
 
   actions: {

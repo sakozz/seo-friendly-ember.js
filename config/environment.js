@@ -19,7 +19,7 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
-        'ember-htmlbars': true
+        'ember-htmlbars': false
       },
       backend: 'http://api.bitsocean.com'
     },
@@ -27,6 +27,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+     sassOptions: {
+      includePaths: ['bower_components/materialize/sass']
     }
   };
 

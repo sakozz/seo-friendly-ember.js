@@ -1,0 +1,32 @@
+@import 'components/color';
+@import 'components/variables';
+
+// Custom color settings go here
+$primary-color: color("blue", "darken-1");
+
+@import 'materialize';
+/* FIXME: Workaround for https://github.com/Dogfalo/materialize/issues/1079 */
+@each $mdi-icon-name, $mdi-icon-value in $mdi-list-icons {
+  .#{$mdi-prefix}#{$mdi-icon-name}:before {
+    content: "\""+ $mdi-icon-value +"\"";
+  }
+}
+
+
+header, main, footer {
+  padding-left: 240px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+ul.side-nav.fixed li.head{
+	background-color: $primary-color;
+	h4{display: inline-block;}
+	&:hover{
+		background-color: $primary-color;
+	}
+}

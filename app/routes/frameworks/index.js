@@ -31,7 +31,15 @@ export default Ember.Route.extend(RouteMetaMixin,{
         'keywords'    : model.title
       }
     };
+
     this.set('meta', metaTags);
+  },
+
+  actions: {
+    didTransition: function() {
+      this.controllerFor('application').set('navTitle', "Front-end JavaScript Frameworks");
+      return true; // Bubble the didTransition event
+    }
   }
   
 });

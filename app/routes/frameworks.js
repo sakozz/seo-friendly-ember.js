@@ -5,5 +5,6 @@ export default Ember.Route.extend({
 		return this.store.find('framework');
 	},
 
-	titleToken: 'Front-end frameworks'
+	titleToken: 'Front-end frameworks',
+	navTitle: "navTitle"
 });

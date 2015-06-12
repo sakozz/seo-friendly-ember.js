@@ -1,13 +1,18 @@
-<div class="list-group col-md-3 panel-default">
+<ul class="side-nav fixed demo-page-submenu" id="mobile-demo" style="width: 240px;">
+  <li class="head">
+  	<h4 class="white-text brand-logo"> Frameworks</h4>
+  </li>
   {{#each framework in model}}          
-    {{#link-to 'frameworks.framework' framework class="list-group-item"}}
-      {{framework.name}}<br>
-      {{!-- <small><cite> {{ date createdAt }} </cite></small> --}}
-    {{/link-to}}
+    <li> 
+     	{{#link-to 'frameworks.framework' framework }}
+     		{{framework.name}}
+    	{{/link-to}}
+    </li>
   {{/each}}
-</div>
+</ul>
+
 <div class="container col-md-9"> 
-	<h3>Front-end javascript frameworks comparision based on Google trend </h3>
+	<h4>Front-end javascript frameworks comparision based on Google trend </h4>
 	<div class="gtrend"></div>
   {{outlet}}
 </div>

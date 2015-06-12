@@ -37,6 +37,13 @@ export default Ember.Route.extend(RouteMetaMixin,{
       }
     };
     this.set('meta', metaTags);
+  },
+
+  actions: {
+    didTransition: function() {
+      this.controllerFor('application').set('navTitle', this.get('currentModel.name'));
+      return true; // Bubble the didTransition event
+    }
   }
   
 });

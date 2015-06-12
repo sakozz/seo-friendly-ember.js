@@ -13,11 +13,7 @@ export default Ember.Route.extend(RouteMetaMixin,{
 		};
   },
 
-  afterModel: function(model) {
-  	// this.setMetaTags(model);
-  },
-
-  meta: function (model) {
+  meta: function () {
   	// var metaDescription = model.metaDescription.substring(0,150)+ '...';
 
     var model = this.get('currentModel');

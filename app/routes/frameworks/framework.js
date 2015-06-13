@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-import RouteMetaMixin from '../../mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin,{
 	
@@ -16,15 +16,10 @@ export default Ember.Route.extend(RouteMetaMixin,{
     return model.get('name');
   },
 
-  metaTags: {},
-
-  afterModel: function(model) {
-  	this.setMetaTags(model);
-  },
-
-  setMetaTags: function (model) {
+  meta: function () {
+    var model = this.get('currentModel');
     var metaDescription = model.get('description').substring(0,150)+ '...';
-  	var metaTags = {
+  	return {
       'property': {
         'og:name'  : model.get('name') +' - BitsOcean',
         'og:image' : 'http://i.imgur.com/ilmbIHl.png',
@@ -36,11 +31,11 @@ export default Ember.Route.extend(RouteMetaMixin,{
         'keywords'    : model.get('name')
       }
     };
-    this.set('meta', metaTags);
   },
 
   actions: {
     didTransition: function() {
+      this._super.apply(this, arguments);
       this.controllerFor('application').set('navTitle', this.get('currentModel.name'));
       return true; // Bubble the didTransition event
     }

@@ -14,8 +14,6 @@ export default Ember.Route.extend(RouteMetaMixin,{
   },
 
   meta: function () {
-  	// var metaDescription = model.metaDescription.substring(0,150)+ '...';
-
     var model = this.get('currentModel');
   	return {
       'property': {
@@ -33,6 +31,7 @@ export default Ember.Route.extend(RouteMetaMixin,{
 
   actions: {
     didTransition: function() {
+      this._super.apply(this, arguments);
       this.controllerFor('application').set('navTitle', "Front-end JavaScript Frameworks");
       return true; // Bubble the didTransition event
     }

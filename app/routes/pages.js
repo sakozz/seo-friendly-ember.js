@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import RouteMetaMixin from '../mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin,{
   redirect: function(){

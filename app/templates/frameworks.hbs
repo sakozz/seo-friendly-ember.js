@@ -3,11 +3,9 @@
   	{{#link-to 'frameworks'}} <h4 class="white-text brand-logo"> Frameworks</h4>{{/link-to}}
   </li>
   {{#each framework in model}}          
-    <li> 
-     	{{#link-to 'frameworks.framework' framework }}
-     		{{framework.name}}
+     	{{#link-to 'frameworks.framework' framework tagName='li' }}
+     		<a> {{framework.name}} </a>
     	{{/link-to}}
-    </li>
   {{/each}}
 </ul>
 

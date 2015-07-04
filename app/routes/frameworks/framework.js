@@ -22,7 +22,7 @@ export default Ember.Route.extend(RouteMetaMixin,{
   	return {
       'property': {
         'og:name'  : model.get('name') +' - BitsOcean',
-        'og:image' : 'http://i.imgur.com/ilmbIHl.png',
+        'og:image' : model.get('logoUrl'),
         'og:url'  : document.location.href,
         'og:description' : metaDescription
       },
